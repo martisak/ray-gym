@@ -29,8 +29,8 @@ if __name__ == "__main__":
     }
 
     all_trials = tune.run_experiments({
-        "apex_ddpg": {
-            "run": "APEX_DDPG",
+        "ppo1": {
+            "run": "PPO",
             "env": "cartpole",
             # "stop": {
             #     "episode_reward_mean": 1000,
