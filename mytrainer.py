@@ -8,7 +8,6 @@ import ray.tune as tune
 def env_creator(env_config):
     return gym.make("LunarLanderContinuous-v2")
 
-
 if __name__ == "__main__":
     register_env("lunarlander", env_creator)
     ray.init(redis_address='master:6379')
