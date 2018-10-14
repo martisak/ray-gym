@@ -11,7 +11,7 @@ def env_creator(env_config):
 
 if __name__ == "__main__":
     register_env("lunarlander", env_creator)
-    ray.init()
+    ray.init(redis_address='master:6379')
 
     config = {
         # "num_gpus": 0,
@@ -19,8 +19,8 @@ if __name__ == "__main__":
         # "num_workers": 3,
         # "num_envs_per_worker": 8,
         # "lambda": 0.98,
-        "sgd_stepsize": tune.grid_search(
-            np.logspace(-3, -4, 2).tolist())
+        "lr": tune.grid_search(
+            np.logspace(-3, -5, 4).tolist())
         # "num_sgd_iter": tune.grid_search([2, 5, 30]),
         # "gamma": 0.9,
         # "batch_mode": "complete_episodes",
